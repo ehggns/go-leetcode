@@ -1,4 +1,4 @@
-# GolangPlayground
+# go-leet
 
 ```bash
 gofmt -w <source-file-path> # format file
