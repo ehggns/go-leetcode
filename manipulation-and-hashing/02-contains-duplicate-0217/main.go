@@ -1,3 +1,17 @@
+/*
+containsDuplicate determines if the input slice contains any duplicate elements.
+It uses a map as a set data structure to track seen elements for O(1) lookups.
+
+Parameters:
+  - nums: A slice of integers to check for duplicates
+
+Returns:
+  - true if any value appears at least twice in the slice
+  - false if every element is distinct
+
+Time Complexity: O(n) where n is the length of nums
+Space Complexity: O(n) in the worst case when all elements are distinct
+*/
 package main
 
 import (

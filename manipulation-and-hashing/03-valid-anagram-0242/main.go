@@ -1,9 +1,3 @@
-package main
-
-import (
-	"strings"
-)
-
 /*
 Brute force: Sort both strings and compare them.
 Time complexity: O(nlogn)
@@ -13,6 +7,11 @@ Optimized: Count the occurrences of each character in both strings and compare t
 Time complexity: O(n)
 Space complexity: O(1)
 */
+package main
+
+import (
+	"strings"
+)
 
 /*
 Optimzed algorithm using a bucket slice to count the occurrences of each character, fit for ASCII
