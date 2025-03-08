@@ -1,3 +1,9 @@
+package main
+
+import (
+	"fmt"
+)
+
 /*
 containsDuplicate determines if the input slice contains any duplicate elements.
 It uses a map as a set data structure to track seen elements for O(1) lookups.
@@ -12,12 +18,6 @@ Returns:
 Time Complexity: O(n) where n is the length of nums
 Space Complexity: O(n) in the worst case when all elements are distinct
 */
-package main
-
-import (
-	"fmt"
-)
-
 func containsDuplicate(nums []int) bool {
 	m := make(map[int]struct{}) // Create a set to store the numbers (using a map and struct{} to save space)
 	for _, num := range nums {  // Iterate through the array

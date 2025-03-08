@@ -54,6 +54,7 @@ func productExceptSelf(nums []int) []int {
 
 	return result
 }
+
 /*
 The optimized function should give the same result as the original function
 for the same input
@@ -80,13 +81,13 @@ func productExceptSelfOptimized(nums []int) []int {
 	prefix := 1
 	for i := range n {
 		result[i] *= prefix // storing the prefix product in the result array
-		prefix *= nums[i] // preparing the prefix product for the next index
+		prefix *= nums[i]   // preparing the prefix product for the next index
 	}
 	// Calculate suffix products
 	suffix := 1
 	for i := n - 1; i >= 0; i-- {
 		result[i] *= suffix // storing the suffix product in the result array
-		suffix *= nums[i] // preparing the suffix product for the next index
+		suffix *= nums[i]   // preparing the suffix product for the next index
 	}
 	// The result array now contains the product of all elements except self
 	// for each index

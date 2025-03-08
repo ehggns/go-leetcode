@@ -14,7 +14,26 @@ import (
 )
 
 /*
-Optimzed algorithm using a bucket slice to count the occurrences of each character, fit for ASCII
+isAnagramBucket is a optimzed algorithm using a bucket slice to count the occurrences of
+each character, fit for ASCII. It determines if two strings are anagrams of each other
+using a counting/bucket approach.
+It converts both strings to lowercase and removes spaces before comparison.
+Two strings are considered anagrams if they contain the same characters with the same frequency.
+
+Parameters:
+  - s: The first string to compare
+  - t: The second string to compare
+
+Returns:
+  - bool: true if the strings are anagrams, false otherwise
+
+Time Complexity: O(n) where n is the length of the input strings
+Space Complexity: O(1) as it uses a fixed-size array of 26 characters
+
+Example:
+
+	isAnagramBucket("listen", "silent") // returns true
+	isAnagramBucket("hello", "world") // returns false
 */
 func isAnagramBucket(s, t string) bool {
 	s = strings.ToLower(s)

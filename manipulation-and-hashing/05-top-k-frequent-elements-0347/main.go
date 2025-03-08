@@ -1,3 +1,5 @@
+package main
+
 /*
 topKFrequent finds the k most frequent elements in an array of integers.
 
@@ -20,8 +22,6 @@ Example:
 
 	topKFrequent([]int{1,1,1,2,2,3}, 2) returns [1,2]
 */
-package main
-
 func topKFrequent(nums []int, k int) []int {
 	// Create a bucket for each frequency. len(nums)+1 to accommodate 0 frequency
 	bucket := make([][]int, len(nums)+1)

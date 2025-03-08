@@ -21,6 +21,26 @@ Space complexity: O(n*k) for storing the result.
 */
 package main
 
+/*
+getEncodedString takes a string and returns an encoded representation where each letter
+is followed by its frequency count in the input string.
+
+The encoding works by:
+1. Creating a frequency map of 26 lowercase letters
+2. Converting the frequency map into a string where each letter is followed by its count
+
+For example, "hello" becomes "h1e1l2o1..." (showing only relevant letters)
+
+Parameters:
+  - s: The input string to be encoded
+
+Returns:
+
+	A string where each letter a-z is followed by its frequency in the input
+
+Time complexity: O(n) where n is the length of input string
+Space complexity: O(1) as we use fixed size arrays
+*/
 func getEncodedString(s string) string {
 	frequencyList := make([]int, 26)
 	for _, char := range s {
@@ -34,6 +54,23 @@ func getEncodedString(s string) string {
 	return string(encodedString)
 }
 
+/*
+groupAnagrams groups a slice of strings into anagram groups and returns them as a slice of string slices.
+An anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
+using all the original letters exactly once.
+
+Parameters:
+  - strs: A slice of strings to be grouped into anagrams
+
+Returns:
+  - [][]string: A slice where each inner slice contains strings that are anagrams of each other.
+    Returns an empty slice if the input is empty.
+
+Example:
+
+	Input: ["eat","tea","tan","ate","nat","bat"]
+	Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+*/
 func groupAnagrams(strs []string) [][]string {
 	groups := make(map[string][]string)
 
