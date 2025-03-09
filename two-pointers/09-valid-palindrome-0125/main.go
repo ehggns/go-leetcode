@@ -1,5 +1,9 @@
 package main
 
+import (
+	"strings"
+)
+
 // isAlphaNumeric verifies if a character (a byte) is alphanumeric and returns a boolean
 func isAlphaNumeric(c byte) bool {
 	return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9')
@@ -17,17 +21,18 @@ This approach achieves O(n) time complexity with O(1) space complexity.
 */
 func isPalindrome(s string) bool {
 	l, r := 0, len(s)-1
+	str := strings.ToLower(s)
 
 	for l < r {
-		for l < r && !isAlphaNumeric(s[l]) {
+		for l < r && !isAlphaNumeric(str[l]) {
 			l++
 		}
 
-		for l < r && !isAlphaNumeric(s[r]) {
+		for l < r && !isAlphaNumeric(str[r]) {
 			r--
 		}
 
-		if s[l] != s[r] {
+		if str[l] != str[r] {
 			return false
 		}
 
@@ -46,4 +51,8 @@ func main() {
 	str2 := "race a car"
 	b = isPalindrome(str2)
 	println(b) // expects false
+
+	str3 := "Race car"
+	b = isPalindrome(str3)
+	println(b) // expects true
 }
