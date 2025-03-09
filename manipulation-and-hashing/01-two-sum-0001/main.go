@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 /*
 twoSum finds two indices in the given array whose values sum up to the target.
 It uses a hash map to store the complement of each number and its index.
@@ -37,5 +33,5 @@ func main() {
 	nums := []int{2, 7, 11, 15} // Example input
 	target := 9                 // Example target
 	result := twoSum(nums, target)
-	fmt.Println(result) // Output: [0 1]
+	println(result) // Output: [0 1]
 }
