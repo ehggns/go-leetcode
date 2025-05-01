@@ -15,6 +15,17 @@ import "sort"
 //
 // Time Complexity: O(n²) where n is the length of nums
 // Space Complexity: O(1) excluding the space used for output
+//
+// Note: Go does not have buillt-in set data structure.
+//       We use a map to track unique triplets.
+//       The triplet is stored as a fixed-size array of 3 integers,
+// 			 and the map's key is the triplet itself.
+//       This ensures that we only add unique triplets to the result.
+//       The map's value is an empty struct, which is a common Go idiom
+//       for representing a set without needing to allocate memory for the value.
+//       The map's key is a fixed-size array of 3 integers, which is a valid
+//       key type in Go. This allows us to use the triplet as a key in the map
+//       to check for uniqueness efficiently.
 func threeSum(nums []int) [][]int {
 	if nums == nil || len(nums) < 3 {
 		return nil
@@ -22,7 +33,7 @@ func threeSum(nums []int) [][]int {
 
 	sort.Ints(nums)
 	result := make([][]int, 0)
-	seen := make(map[[3]int]bool)
+	seen := make(map[[3]int]struct{})
 	for i := range len(nums) - 2 {
 		left, right := i+1, len(nums)-1
 
@@ -37,7 +48,7 @@ func threeSum(nums []int) [][]int {
 					right--
 					continue
 				}
-				seen[triplet] = true
+				seen[triplet] = struct{}{}
 				result = append(result, []int{nums[i], nums[left], nums[right]})
 
 				for left < right && nums[left] == nums[left+1] {
