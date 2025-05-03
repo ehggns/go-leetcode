@@ -1,4 +1,6 @@
-# go-leet
+# go-leetcode
+
+Practices of leetcode in Go.
 
 ```bash
 gofmt -w <source-file-path> # format file
