@@ -10,8 +10,9 @@ This document outlines the key coding techniques, algorithms, data structures, a
 4. [Hash-Based Techniques](#hash-based-techniques)
 5. [Linked List Manipulation](#linked-list-manipulation)
 6. [Fast & Slow Pointer Technique](#fast--slow-pointer-technique)
-7. [Go-Specific Idioms](#go-specific-idioms)
-8. [Time and Space Complexity Analysis](#time-and-space-complexity-analysis)
+7. [Divide-and-Conquer](#divide-and-conquer)
+8. [Go-Specific Idioms](#go-specific-idioms)
+9. [Time and Space Complexity Analysis](#time-and-space-complexity-analysis)
 
 ## Data Structures
 
@@ -299,6 +300,84 @@ Example usage in problems:
 
 - Linked List Cycle (Problem 141)
 - Linked List Cycle II (Problem 142)
+
+## Divide-and-Conquer
+
+Divide and conquer is an algorithmic paradigm where a problem is broken down into smaller subproblems, which are solved independently, and their solutions are combined to solve the original problem.
+
+### Recursive Divide-and-Conquer
+
+This pattern involves:
+
+1. Dividing the problem into smaller subproblems
+2. Solving the subproblems recursively
+3. Combining the results to form a solution to the original problem
+
+```go
+func divideAndConquer(problem []Type) Result {
+    // Base cases
+    if len(problem) <= threshold {
+        return solveDirectly(problem)
+    }
+
+    // Divide
+    mid := len(problem) / 2
+    leftResult := divideAndConquer(problem[:mid])  // First half
+    rightResult := divideAndConquer(problem[mid:]) // Second half
+
+    // Combine
+    return combine(leftResult, rightResult)
+}
+```
+
+Example usage in problems:
+
+- Merge K Sorted Lists (Problem 23)
+- Sort an Array (Problem 912)
+- Maximum Subarray (Problem 53)
+
+### Slice Operations in Go for Divide-and-Conquer
+
+Go's slice expressions make implementing divide-and-conquer approaches elegant:
+
+```go
+// Create a slice with elements from index 0 to mid-1
+leftHalf := array[:mid]
+
+// Create a slice with elements from index mid to end
+rightHalf := array[mid:]
+```
+
+Key properties of slice operations:
+
+- O(1) time complexity (no copying of elements)
+- They create a view into the underlying array
+- Changes to elements in the slice affect the original array
+
+### Example: Merge K Sorted Lists
+
+The "Merge K Sorted Lists" problem demonstrates a classic divide-and-conquer approach:
+
+```go
+func mergeKLists(lists []*ListNode) *ListNode {
+    if len(lists) == 0 {
+        return nil
+    }
+    if len(lists) == 1 {
+        return lists[0]
+    }
+
+    // Divide
+    mid := len(lists) / 2
+    left := mergeKLists(lists[:mid])   // Process first half
+    right := mergeKLists(lists[mid:])  // Process second half
+
+    // Combine (using a helper function to merge two lists)
+    return mergeTwoLists(left, right)
+}
+```
+
+This achieves O(N log k) time complexity, where N is the total number of nodes across all lists and k is the number of lists. The logarithmic factor comes from the divide-and-conquer approach which reduces the problem size by half in each recursive call.
 
 ## Go-Specific Idioms
 
