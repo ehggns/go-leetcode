@@ -31,11 +31,11 @@ func mergeTwoSortedLists(l1 *ListNode, l2 *ListNode) *ListNode {
 
 // mergeKListsRecursive merges k sorted linked lists into a single sorted linked list.
 // It uses a divide-and-conquer approach to recursively merge the lists:
-// - If the input array is empty, it returns nil.
-// - If there's only one list, it returns that list.
-// - If there are two lists, it directly merges them using mergeTwoSortedLists.
-// - For more than two lists, it splits the array in half, recursively merges each half,
-//   and then combines the results.
+//   - If the input array is empty, it returns nil.
+//   - If there's only one list, it returns that list.
+//   - If there are two lists, it directly merges them using mergeTwoSortedLists.
+//   - For more than two lists, it splits the array in half, recursively merges each half,
+//     and then combines the results.
 //
 // Time Complexity: O(N log k) where N is the total number of nodes across all lists and k is the number of lists.
 // Space Complexity: O(log k) for the recursion stack.
