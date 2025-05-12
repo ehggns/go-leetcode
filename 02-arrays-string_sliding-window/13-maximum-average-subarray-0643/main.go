@@ -42,7 +42,6 @@ func findMaxAverageSubarray(nums []int, k int) float64 {
 	return float64(maxSum) / float64(k)
 }
 
-
 func main() {
 	nums := []int{1, 12, -5, -6, 50, 3}
 	k := 4 // Size of the subarray
